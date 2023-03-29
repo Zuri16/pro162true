@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Juego de bolos en realidad virtual (VR)</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="./throw.js"></script>
+    
+  </head>
+  <body>
+    <a-scene id="scene">
+
+      <!-- Recursos -->
+      <a-assets>
+        <a-asset-item
+          id="ball"
+          src="./bolos161-main/models/bowling_ball/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="pin"
+          src="./bolos161-main/models/bowling_pin/scene.gltf"
+        ></a-asset-item>
+      </a-assets>
+      
+      <!-- Luz -->
+      <a-entity light="type: ambient; color: #ECFFFB; intensity:1"></a-entity>
+
+      <!-- Cámara y cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 2 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+        <a-entity 
+          id="bolo"
+          gltf-model="#ball"
+          position="0 -0.6 -1"
+          rotation="0 0 0"
+          scale="2 2 2"
+        ></a-entity>
+        <a-cursor></a-cursor>        
+      </a-entity>
+
+      <!-- Balas -->
+      <a-entity bowling-balls></a-entity> 
+
+      <!-- Terreno -->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="#CA84A0"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <!-- muralla -->
+      <a-box
+        id="mall"
+        position="0 4 -12"
+        rotation="0 0 0"
+        height="5"
+        width="13"
+        color="#824DA7"
+        static-body
+        visible="true"
+      >
+      </a-box>
+      <a-box
+        id="mall1"
+        position="-6 4 -11"
+        rotation="0 0 0"
+        height="5"
+        width="1"
+        color="#0D2CAB"
+        static-body
+        visible="true"
+      >
+      </a-box>
+      <a-box
+        id="mall1"
+        position="6 4 -11"
+        rotation="0 0 0"
+        height="5"
+        width="1"
+        color="#0D2CAB"
+        static-body
+        visible="true"
+      >
+      </a-box>
+      <a-box
+        id="mall2"
+        position="0 7 -11"
+        rotation="0 0 0"
+        height="1"
+        width="15"
+        color="#0D2CAB"
+        static-body
+        visible="true"
+      >
+      </a-box>
+      <a-cylinder
+        id="mall2"
+        position="5 1.5 -6"
+        rotation="90 0 0"
+        radius="0.4"
+        height="10"
+        color="#17B1AA"
+        static-body
+        visible="true"
+      >
+      </a-cylinder>
+      <a-cylinder
+        id="mall2"
+        position="-5 1.5 -6"
+        rotation="90 0 0"
+        radius="0.4"
+        height="10"
+        color="#17B1AA"
+        static-body
+        visible="true"
+      >
+      </a-cylinder>
+
+      <!-- Pinos -->
+      <a-entity 
+          id="pino1"
+          gltf-model="#pin"
+          position="-1 1 -10"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pino2"
+          gltf-model="#pin"
+          position="0 1 -10"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pino3"
+          gltf-model="#pin"
+          position="1 1 -10"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pino4"
+          gltf-model="#pin"
+          position="2 1 -10"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pino5"
+          gltf-model="#pin"
+          position="-2 1 -10"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pin6"
+          gltf-model="#pin"
+          position="-1.2 1 -8"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pin7"
+          gltf-model="#pin"
+          position="-0.3 1 -8"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pino8"
+          gltf-model="#pin"
+          position="0.4 1 -8"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+      <a-entity 
+          id="pino9"
+          gltf-model="#pin"
+          position="1.2 1 -8"
+          scale="5 5 5"
+          dynamic-body
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
